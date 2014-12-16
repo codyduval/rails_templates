@@ -36,7 +36,7 @@ end
 inject_into_file "Gemfile", after: "source 'https://rubygems.org'" do <<-FILE
 
 
-ruby "2.1.1"
+ruby "2.1.5"
 FILE
 end
 
@@ -45,12 +45,15 @@ gem_group :development, :test do
 end
 
 gem_group :test do
+  gem "rspec-rails", "~> 3.0"
   gem "selenium-webdriver"
   gem "capybara"
 end
 
 gem_group :development do
   gem "quiet_assets"
+  gem "guard"
+  gem "guard-rspec", require: false
 end
 
 gem_group :production do
@@ -61,10 +64,13 @@ end
 gem "unicorn"
 gem "font-awesome-rails"
 gem "bootstrap-sass"
-gem "so_meta"
+gem "jquery-ui-rails"
+gem "designmodo-flatuipro-rails"
 gem "local_time"
 
 run "bundle install"
+run "rails generate rspec:install"
+run "guard init rspec"
 
 # Setup unicorn for Heroku
 create_file "config/unicorn.rb" do <<-FILE
