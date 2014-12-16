@@ -65,7 +65,6 @@ gem "unicorn"
 gem "font-awesome-rails"
 gem "bootstrap-sass"
 gem "jquery-ui-rails"
-gem "designmodo-flatuipro-rails"
 gem "local_time"
 
 run "bundle install"
