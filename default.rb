@@ -66,6 +66,7 @@ gem "font-awesome-rails"
 gem "bootstrap-sass"
 gem "jquery-ui-rails"
 gem "local_time"
+gem 'flat-ui-sass', github: 'wingrunr21/flat-ui-sass'
 
 run "bundle install"
 run "rails generate rspec:install"
