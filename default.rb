@@ -66,7 +66,7 @@ gem "font-awesome-rails"
 gem "bootstrap-sass"
 gem "jquery-ui-rails"
 gem "local_time"
-gem 'flat-ui-sass', github: 'wingrunr21/flat-ui-sass'
+gem 'autoprefixer-rails'
 
 run "bundle install"
 run "rails generate rspec:install"
@@ -111,7 +111,7 @@ end
 append_file "app/assets/javascripts/application.js", "//= require init"
 
 inject_into_file "app/assets/javascripts/application.js", before: "//= require_tree ." do <<-FILE
-//= require bootstrap
+//= require bootstrap-sprockets
 FILE
 end
 
@@ -120,8 +120,8 @@ create_file "app/assets/stylesheets/application.css.scss" do <<-FILE
  *= require_self
  */
 
+@import "bootstrap-sprockets";
 @import "bootstrap";
-@import "font-awesome";
 FILE
 end
 
